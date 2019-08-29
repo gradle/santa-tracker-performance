@@ -1,0 +1,8 @@
+[submodule "santa-tracker-kotlin"]
+	path = santa-tracker-kotlin
+	url = git@github.com:gradle/santa-tracker-android.git
+	branch = agp-3.6.0
+[submodule "santa-tracker-java"]
+	path = santa-tracker-java
+	url = git@github.com:gradle/santa-tracker-android.git
+	branch = agp-3.6.0-java
