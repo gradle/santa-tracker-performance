@@ -16,6 +16,7 @@ You can run a benchmark for Java like this:
 $ gradle-profiler \
   --project-dir santa-tracker-java \
   --scenario-file santa-tracker-java.scenarios \
+  --gradle-version 6.0-20190828220044+0000
   --benchmark nonAbiChangeWithSnapshottingOps
 ```
 
