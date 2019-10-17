@@ -1,0 +1,23 @@
+initscript {
+    repositories {
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath "com.gradle:gradle-enterprise-gradle-plugin:3.0"
+    }
+}
+
+if (!gradle.startParameter.systemPropertiesArgs.containsKey("disableBuildScan")) {
+    settingsEvaluated { settings ->
+        settings.apply(plugin: com.gradle.enterprise.gradleplugin.GradleEnterprisePlugin)
+
+        settings.gradleEnterprise {
+            buildScan {
+                termsOfServiceUrl = "https://gradle.com/terms-of-service"
+                termsOfServiceAgree = "yes"
+                captureTaskInputFiles = true
+                publishAlways()
+            }
+        }
+    }
+}
