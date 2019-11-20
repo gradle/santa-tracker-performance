@@ -2,7 +2,7 @@
 rm -rf santa-tracker-java/.instant-execution-state
 sync
 
-time gradle-profiler \
+gradle-profiler \
     --project-dir santa-tracker-java \
     --scenario-file santa-tracker-java.scenarios \
     --gradle-version "$GRADLE_VERSION" \
