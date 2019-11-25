@@ -7,4 +7,5 @@ gradle-profiler \
     --gradle-version "$GRADLE_VERSION" \
     --warmups 2 \
     --iterations 100 \
-    --benchmark noOptimizations onlyPartialInvalidation onlyVfsRetention
+    --benchmark noOptimizations onlyPartialInvalidation onlyVfsRetention \
+    --csv-format long
