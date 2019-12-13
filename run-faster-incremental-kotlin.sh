@@ -1,7 +1,9 @@
 #!/bin/sh
 sync
 
-gradle-profiler \
+gradle-profiler/gradlew --project-dir gradle-profiler install
+
+gradle-profiler/build/install/gradle-profiler/bin/gradle-profiler \
     --project-dir santa-tracker-kotlin \
     --scenario-file santa-tracker-kotlin.scenarios \
     --gradle-version "$GRADLE_VERSION" \
