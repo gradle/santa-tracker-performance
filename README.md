@@ -13,7 +13,7 @@ Respectively, there are separate performance tests scenarios for the Java and Ko
 
 There is also a submodule pointing to Gradle Profiler itself.
 
-## Running a benchamrk
+## Running a benchmark
 
 To run a benchmark set the following environment variables:
 
