@@ -1,5 +1,4 @@
 #!/bin/sh
-rm -rf santa-tracker-java/.instant-execution-state
 sync
 
 gradle-profiler/gradlew --project-dir gradle-profiler install
