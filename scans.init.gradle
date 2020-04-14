@@ -4,7 +4,7 @@ initscript {
         maven { url = uri("https://repo.gradle.org/gradle/libs-releases") }
     }
     dependencies {
-        classpath "com.gradle:gradle-enterprise-gradle-plugin:3.1-rc-2"
+        classpath "com.gradle:gradle-enterprise-gradle-plugin:3.1"
     }
 }
 
