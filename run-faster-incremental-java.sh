@@ -14,5 +14,5 @@ gradle-profiler/build/install/gradle-profiler/bin/gradle-profiler \
     --gradle-version "$GRADLE_VERSION" \
     --warmups 2 \
     --iterations ${1:-100} \
-    --benchmark noOptimizations onlyVfsRetention onlyInstantExecution allOptimizations \
+    --benchmark noOptimizations onlyFileSystemWatching onlyConfigurationCache allOptimizations \
     --csv-format long
