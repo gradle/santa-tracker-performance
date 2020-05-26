@@ -1,8 +1,8 @@
 #!/bin/bash
 
-AGP_VERSION="${AGP_VERSION:-3.6.1}"
-KOTLIN_VERSION="${KOTLIN_VERSION:-1.3.70}"
-GRADLE_VERSION="${GRADLE_VERSION:-6.2.2}"
+AGP_VERSION="${AGP_VERSION:-4.0.0-rc01}"
+GRADLE_VERSION="${GRADLE_VERSION:-6.5-20200524230507+0000}"
+KOTLIN_VERSION="${KOTLIN_VERSION:-1.3.72}"
 
 sync
 
@@ -16,5 +16,5 @@ gradle-profiler/build/install/gradle-profiler/bin/gradle-profiler \
     --gradle-version "$GRADLE_VERSION" \
     --warmups 2 \
     --iterations ${1:-100} \
-    --benchmark noOptimizations onlyVfsRetention \
+    --benchmark noOptimizations onlyFileSystemWatching \
     --csv-format long
