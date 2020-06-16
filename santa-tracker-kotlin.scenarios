@@ -1,5 +1,5 @@
 # Performance scenarios for santa-tracker-android project
-include required(file("santa-tracker-base.conf"))
+include required(file("gradle-benchmark-base/incremental-base"))
 
 file-to-change  = "tracker/src/main/java/com/google/android/apps/santatracker/tracker/ui/BottomSheetBehavior.java"
-resource-to-change  = "santa-tracker/src/main/res/values/strings.xml"
+tasks-to-measure = [":santa-tracker:assembleDebug"]

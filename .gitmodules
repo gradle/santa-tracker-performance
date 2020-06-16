@@ -9,3 +9,6 @@
 [submodule "gradle-profiler"]
 	path = gradle-profiler
 	url = https://github.com/gradle/gradle-profiler
+[submodule "gradle-benchmark-base"]
+	path = gradle-benchmark-base
+	url = https://github.com/gradle/gradle-benchmark-base
