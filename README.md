@@ -4,7 +4,7 @@ _Performance tests for Santa Tracker Android project._
 
 The project contains [Gradle Profiler](http://github.com/gradle/gradle-profiler) benchmark scenarios to test the performance of different kinds of behavior using the Santa Tracker Android app.
 
-The repo has two submodules pointing to the same Gradle fork of the [official Santa Trakcer](https://github.com/google/santa-tracker-android) repository.
+The repo has two submodules pointing to the same Gradle fork of the [official Santa Tracker](https://github.com/google/santa-tracker-android) repository.
 One submodule points to an older branch of the original repository that is kept more or less up-to-date by Gradle, and uses Java sources only.
 The other submodule is derived from the `master` branch of the main repo.
 This variant is in large part written in Kotlin.
