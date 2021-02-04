@@ -11,8 +11,8 @@ gradle-profiler/gradlew --project-dir gradle-profiler install
 gradle-profiler/build/install/gradle-profiler/bin/gradle-profiler \
     -DagpVersion=$AGP_VERSION \
     -DkotlinVersion=$KOTLIN_VERSION \
-    --project-dir santa-tracker-kotlin \
-    --scenario-file santa-tracker-kotlin.scenarios \
+    --project-dir santa-tracker \
+    --scenario-file santa-tracker.scenarios \
     --gradle-version "$GRADLE_VERSION" \
     --warmups 2 \
     --iterations ${1:-100} \

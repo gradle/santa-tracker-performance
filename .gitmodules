@@ -1,5 +1,5 @@
-[submodule "santa-tracker-kotlin"]
-	path = santa-tracker-kotlin
+[submodule "santa-tracker"]
+	path = santa-tracker
     url = https://github.com/gradle/santa-tracker-android
 	branch = agp-3.6.0
 [submodule "gradle-profiler"]
