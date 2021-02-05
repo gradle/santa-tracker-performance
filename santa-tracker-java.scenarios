@@ -1,5 +1,0 @@
-# Performance scenarios for santa-tracker-android project
-include required(file("gradle-benchmark-base/incremental-base"))
-
-file-to-change  = "village/src/main/java/com/google/android/apps/santatracker/village/SnowFlake.java"
-tasks-to-measure = [":santa-tracker:assembleDebug"]
