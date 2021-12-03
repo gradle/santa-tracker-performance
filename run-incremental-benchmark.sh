@@ -3,6 +3,7 @@
 AGP_VERSION="${AGP_VERSION:-7.0.0-alpha05}"
 GRADLE_VERSION="${GRADLE_VERSION:-7.0-milestone-1}"
 KOTLIN_VERSION="${KOTLIN_VERSION:-1.4.30}"
+BENCHMARK="${BENCHMARK:-no-optimizations only-file-system-watching only-configuration-cache all-optimizations}"
 
 sync
 
@@ -16,5 +17,5 @@ gradle-profiler/build/install/gradle-profiler/bin/gradle-profiler \
     --gradle-version "$GRADLE_VERSION" \
     --warmups 2 \
     --iterations ${1:-100} \
-    --benchmark no-optimizations only-file-system-watching only-configuration-cache all-optimizations \
+    --benchmark ${BENCHMARK} \
     --csv-format long

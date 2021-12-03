@@ -1,0 +1,5 @@
+# Performance scenarios for santa-tracker-android project
+include required(file("gradle-benchmark-base/android-studio-sync-base"))
+
+app-build-script-to-change = "build.gradle"
+library-build-script-to-change = "common/build.gradle"
