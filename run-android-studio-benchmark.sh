@@ -1,6 +1,6 @@
 #!/bin/bash
 
-AGP_VERSION="${AGP_VERSION:-7.1.0-beta01}"
+AGP_VERSION="${AGP_VERSION:-7.1.0-beta04}"
 GRADLE_VERSION="${GRADLE_VERSION:-7.3.1}"
 KOTLIN_VERSION="${KOTLIN_VERSION:-1.4.30}"
 BENCHMARK="${BENCHMARK:-no-op-sync first-import-sync-scenario app-build-script-change-sync app-dependency-change-sync library-dependency-change-sync}"
