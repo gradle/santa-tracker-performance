@@ -43,3 +43,5 @@ This will run just `no-optimizations` and `only-file-system-watching` scenario.
 ### Android Studio benchmark specifics
 
 For Android Studio sync Android Studio Bumblebee (2021.1.1) or later is required. Additionally, you have to set `ANDROID_STUDIO_INSTALL_DIR` environment variable with a location of the Android Studio. On the macOS that is normally `/Applications/Android Studio.app/`.
+
+Android Studio benchmark will create an Android Studio sandbox folder in the `studio-sandbox` directory. This can be modified by setting `ANDROID_STUDIO_SANDBOX_DIR` environment variable.
