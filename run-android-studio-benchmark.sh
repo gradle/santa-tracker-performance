@@ -13,7 +13,7 @@ fi
 
 sync
 
-gradle-profiler/gradlew --project-dir gradle-profiler install
+gradle-profiler/gradlew --project-dir gradle-profiler installDist
 
 gradle-profiler/build/install/gradle-profiler/bin/gradle-profiler \
     -DagpVersion=$AGP_VERSION \
