@@ -1,7 +1,12 @@
 #!/bin/bash
+set -e
 
-AGP_VERSION="${AGP_VERSION:-7.1.0-beta04}"
-GRADLE_VERSION="${GRADLE_VERSION:-7.3.1}"
+# Usage: ./run-android-studio-benchmark.sh [<iteration count>]
+
+ITERATION_COUNT_ARG="${1:-10}"
+
+AGP_VERSION="${AGP_VERSION:-7.2.2}"
+GRADLE_VERSION="${GRADLE_VERSION:-7.5.1}"
 KOTLIN_VERSION="${KOTLIN_VERSION:-1.4.30}"
 BENCHMARK="${BENCHMARK:-no-op-sync first-import-sync app-build-script-change-sync app-dependency-change-sync library-dependency-change-sync}"
 ANDROID_STUDIO_SANDBOX_DIR="${ANDROID_STUDIO_SANDBOX_DIR:-studio-sandbox}"
@@ -24,6 +29,6 @@ gradle-profiler/build/install/gradle-profiler/bin/gradle-profiler \
     --scenario-file santa-tracker-android-studio.scenarios \
     --gradle-version "$GRADLE_VERSION" \
     --warmups 2 \
-    --iterations ${1:-10} \
+    --iterations ${ITERATION_COUNT_ARG} \
     --benchmark ${BENCHMARK} \
     --csv-format long
