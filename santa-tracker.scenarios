@@ -3,3 +3,13 @@ include required(file("gradle-benchmark-base/incremental-base"))
 
 file-to-change  = "common/src/main/java/com/google/android/apps/santatracker/AudioPlayer.kt"
 tasks-to-measure = [":santa-tracker:assembleDebug"]
+
+build-cache-ng = ${incremental-scenario} {
+    title = "10 – Next generation build cache"
+    gradle-args = ${incremental-scenario.gradle-args} ["--watch-fs", "--configuration-cache", "--configuration-cache-problems=warn", "--build-cache", "-Dorg.gradle.unsafe.cache.ng=true"]
+}
+
+no-build-cache-ng = ${incremental-scenario} {
+    title = "11 – No build cache"
+    gradle-args = ${incremental-scenario.gradle-args} ["--watch-fs", "--configuration-cache", "--configuration-cache-problems=warn", "--no-build-cache"]
+}
