@@ -1,0 +1,16 @@
+gradle.settingsEvaluated {
+    it.buildCache {
+        remote(org.gradle.caching.http.HttpBuildCache) {
+            enabled = true
+            url = System.getenv("HTTP_CACHE_URL")
+            push = (System.getenv("HTTP_CACHE_PUSH") == "true")
+            credentials {
+                username = System.getenv("HTTP_CACHE_USERNAME")
+                password = System.getenv("HTTP_CACHE_PASSWORD")
+
+                println "Using $username w/ $password"
+            }
+            allowUntrustedServer = true
+        }
+    }
+}

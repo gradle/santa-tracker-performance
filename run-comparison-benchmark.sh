@@ -9,7 +9,17 @@ AGP_VERSION="${AGP_VERSION:-7.4.1}"
 GRADLE_VERSION1="${GRADLE_VERSION1:-7.6}"
 GRADLE_VERSION2="${GRADLE_VERSION2:-7.6}"
 KOTLIN_VERSION="${KOTLIN_VERSION:-1.8.0}"
-BENCHMARK="${BENCHMARK:-build-cache-ng no-build-cache-ng}"
+BENCHMARK="${BENCHMARK:-build-cache-ng build-cache-ng-http all-optimizations}"
+
+OP_URL="op://All Engineering/Build cache node test instance API cred"
+echo "Getting data from 1Passowrd at '${OP_URL}'..."
+
+export HTTP_CACHE_URL="$(op read "$OP_URL/website")/cache"
+export HTTP_CACHE_USERNAME=$(op read "$OP_URL/username")
+export HTTP_CACHE_PASSWORD=$(op read "$OP_URL/password")
+export HTTP_CACHE_PUSH=true
+
+echo "Using HTTP cache at '${HTTP_CACHE_URL}'..."
 
 sync
 
