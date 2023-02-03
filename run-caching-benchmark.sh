@@ -6,9 +6,7 @@ set -e
 ITERATION_COUNT_ARG="${1:-10}"
 
 AGP_VERSION="${AGP_VERSION:-7.4.1}"
-GRADLE_VERSION1="${GRADLE_VERSION1:-7.6}"
-GRADLE_VERSION2="${GRADLE_VERSION2:-7.6}"
-KOTLIN_VERSION="${KOTLIN_VERSION:-1.8.0}"
+KOTLIN_VERSION="${KOTLIN_VERSION:-1.8.10}"
 BENCHMARK="${BENCHMARK:-benchmark-local-change-ng}"
 
 OP_URL="op://All Engineering/Build cache node test instance API cred"
@@ -30,7 +28,7 @@ gradle-profiler/build/install/gradle-profiler/bin/gradle-profiler \
     -DkotlinVersion=$KOTLIN_VERSION \
     --project-dir santa-tracker \
     --scenario-file santa-tracker-caching.scenarios \
-    --gradle-version "$GRADLE_VERSION2" \
+    --gradle-version "$GRADLE_VERSION" \
     --warmups 2 \
     --iterations ${ITERATION_COUNT_ARG} \
     --benchmark ${BENCHMARK} \
