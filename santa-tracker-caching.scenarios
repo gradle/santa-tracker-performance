@@ -7,6 +7,8 @@ scenario-base = {
     clear-project-cache-before = SCENARIO
     clear-build-cache-before = SCENARIO
 
+    show-build-cache-size = true
+
     gradle-args = [
         "-Dorg.gradle.workers.max=8",
         "--no-scan",
@@ -73,4 +75,36 @@ benchmark-local-change-baseline-http = ${scenario-local-change} {
 benchmark-local-change-ng-http = ${scenario-local-change} {
     title = "Local change - cache NG w/ HTTP remote"
     gradle-args = ${scenario-local-change.gradle-args} ${build-cache-ng-http.gradle-args}
+}
+
+# Clean build scenarios
+
+scenario-clean-build = ${scenario-base} {
+    # Clean the project between builds
+    cleanup-tasks = ["clean"]
+}
+
+benchmark-clean-build-no-cache = ${scenario-clean-build} {
+    title = "Clean build - no cache"
+    gradle-args = ${scenario-clean-build.gradle-args} ${build-cache-off.gradle-args}
+}
+
+benchmark-clean-build-baseline = ${scenario-clean-build} {
+    title = "Clean build - baseline cache"
+    gradle-args = ${scenario-clean-build.gradle-args} ${build-cache-baseline.gradle-args}
+}
+
+benchmark-clean-build-ng = ${scenario-clean-build} {
+    title = "Clean build - cache NG"
+    gradle-args = ${scenario-clean-build.gradle-args} ${build-cache-ng.gradle-args}
+}
+
+benchmark-clean-build-baseline-http = ${scenario-clean-build} {
+    title = "Clean build - baseline cache w/ HTTP remote"
+    gradle-args = ${scenario-clean-build.gradle-args} ${build-cache-baseline-http.gradle-args}
+}
+
+benchmark-clean-build-ng-http = ${scenario-clean-build} {
+    title = "Clean build - cache NG w/ HTTP remote"
+    gradle-args = ${scenario-clean-build.gradle-args} ${build-cache-ng-http.gradle-args}
 }
