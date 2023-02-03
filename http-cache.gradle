@@ -3,8 +3,8 @@ gradle.settingsEvaluated {
         remote(org.gradle.caching.http.HttpBuildCache) {
             enabled = true
             url = Boolean.getBoolean("org.gradle.unsafe.cache.ng")
-                ? System.getenv("HTTP_CACHE_URL") + "/ng"
-                : System.getenv("HTTP_CACHE_URL") + "/baseline"
+                ? System.getenv("HTTP_CACHE_URL") + "-ng"
+                : System.getenv("HTTP_CACHE_URL") + "-baseline"
             push = (System.getenv("HTTP_CACHE_PUSH") == "true")
             println "Using cache at $url, push is ${push ? "enabled" : "disabled"}}"
             credentials {

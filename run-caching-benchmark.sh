@@ -12,7 +12,9 @@ BENCHMARK="${BENCHMARK:-benchmark-local-change-ng}"
 OP_URL="op://All Engineering/Build cache node test instance API cred"
 echo "Getting data from 1Passowrd at '${OP_URL}'..."
 
-export HTTP_CACHE_URL="$(op read "$OP_URL/website")/cache"
+# Generate a random ID for the cache URL each time
+RANDOM_ID=$(openssl rand -hex 8)
+export HTTP_CACHE_URL="$(op read "$OP_URL/website")/cache/iter-$RANDOM_ID"
 export HTTP_CACHE_USERNAME=$(op read "$OP_URL/username")
 export HTTP_CACHE_PASSWORD=$(op read "$OP_URL/password")
 export HTTP_CACHE_PUSH=true
