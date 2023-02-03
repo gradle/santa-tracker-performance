@@ -1,0 +1,76 @@
+# Performance scenarios for santa-tracker-android project to measure next generation build cache performance
+
+file-to-change  = "common/src/main/java/com/google/android/apps/santatracker/AudioPlayer.kt"
+tasks-to-measure = [":santa-tracker:assembleDebug"]
+
+scenario-base = {
+    clear-project-cache-before = SCENARIO
+    clear-build-cache-before = SCENARIO
+
+    gradle-args = [
+        "-Dorg.gradle.workers.max=8",
+        "--no-scan",
+
+        "--watch-fs",
+        "--configuration-cache",
+        "--configuration-cache-problems=warn"
+    ]
+
+    tasks = ${tasks-to-measure}
+}
+
+http-cache-config = {
+    gradle-args = ["-I../http-cache.gradle"]
+}
+
+build-cache-off = {
+    gradle-args = ["--no-build-cache"]
+}
+
+build-cache-baseline = {
+    gradle-args = ["--build-cache"]
+}
+
+build-cache-baseline-http = ${build-cache-baseline} {
+    gradle-args = ${build-cache-baseline.gradle-args} ${http-cache-config.gradle-args}
+}
+
+build-cache-ng = {
+    gradle-args = ["--build-cache", "-Dorg.gradle.unsafe.cache.ng=true"]
+}
+
+build-cache-ng-http = ${build-cache-ng} {
+    gradle-args = ${build-cache-ng.gradle-args} ${http-cache-config.gradle-args}
+}
+
+# Local change scenarios
+
+scenario-local-change = ${scenario-base} {
+    # Mutate the given source file between builds
+    apply-non-abi-change-to = ${file-to-change}
+}
+
+benchmark-local-change-no-cache = ${scenario-local-change} {
+    title = "Local change - no cache"
+    gradle-args = ${scenario-local-change.gradle-args} ${build-cache-off.gradle-args}
+}
+
+benchmark-local-change-baseline = ${scenario-local-change} {
+    title = "Local change - baseline cache"
+    gradle-args = ${scenario-local-change.gradle-args} ${build-cache-baseline.gradle-args}
+}
+
+benchmark-local-change-ng = ${scenario-local-change} {
+    title = "Local change - cache NG"
+    gradle-args = ${scenario-local-change.gradle-args} ${build-cache-ng.gradle-args}
+}
+
+benchmark-local-change-baseline-http = ${scenario-local-change} {
+    title = "Local change - baseline cache w/ HTTP remote"
+    gradle-args = ${scenario-local-change.gradle-args} ${build-cache-baseline-http.gradle-args}
+}
+
+benchmark-local-change-ng-http = ${scenario-local-change} {
+    title = "Local change - cache NG w/ HTTP remote"
+    gradle-args = ${scenario-local-change.gradle-args} ${build-cache-ng-http.gradle-args}
+}

@@ -2,13 +2,14 @@ gradle.settingsEvaluated {
     it.buildCache {
         remote(org.gradle.caching.http.HttpBuildCache) {
             enabled = true
-            url = System.getenv("HTTP_CACHE_URL")
+            url = Boolean.getBoolean("org.gradle.unsafe.cache.ng")
+                ? System.getenv("HTTP_CACHE_URL") + "/ng"
+                : System.getenv("HTTP_CACHE_URL") + "/baseline"
             push = (System.getenv("HTTP_CACHE_PUSH") == "true")
+            println "Using cache at $url, push is ${push ? "enabled" : "disabled"}}"
             credentials {
                 username = System.getenv("HTTP_CACHE_USERNAME")
                 password = System.getenv("HTTP_CACHE_PASSWORD")
-
-                println "Using $username w/ $password"
             }
             allowUntrustedServer = true
         }

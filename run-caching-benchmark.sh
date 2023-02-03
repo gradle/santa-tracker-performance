@@ -9,7 +9,7 @@ AGP_VERSION="${AGP_VERSION:-7.4.1}"
 GRADLE_VERSION1="${GRADLE_VERSION1:-7.6}"
 GRADLE_VERSION2="${GRADLE_VERSION2:-7.6}"
 KOTLIN_VERSION="${KOTLIN_VERSION:-1.8.0}"
-BENCHMARK="${BENCHMARK:-build-cache-ng build-cache-ng-http all-optimizations}"
+BENCHMARK="${BENCHMARK:-benchmark-local-change-ng}"
 
 OP_URL="op://All Engineering/Build cache node test instance API cred"
 echo "Getting data from 1Passowrd at '${OP_URL}'..."
@@ -29,8 +29,7 @@ gradle-profiler/build/install/gradle-profiler/bin/gradle-profiler \
     -DagpVersion=$AGP_VERSION \
     -DkotlinVersion=$KOTLIN_VERSION \
     --project-dir santa-tracker \
-    --scenario-file santa-tracker.scenarios \
-    --gradle-version "$GRADLE_VERSION1" \
+    --scenario-file santa-tracker-caching.scenarios \
     --gradle-version "$GRADLE_VERSION2" \
     --warmups 2 \
     --iterations ${ITERATION_COUNT_ARG} \
