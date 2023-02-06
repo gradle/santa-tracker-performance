@@ -108,3 +108,27 @@ benchmark-clean-build-ng-http = ${scenario-clean-build} {
     title = "Clean build - cache NG w/ HTTP remote"
     gradle-args = ${scenario-clean-build.gradle-args} ${build-cache-ng-http.gradle-args}
 }
+
+
+# Pull everything scerarios
+
+scenario-pull-everything = ${scenario-base} {
+    # Clean the project between builds
+    cleanup-tasks = ["clean"]
+
+    # Clean the build cache between builds
+    clear-build-cache-before = BUILD
+
+    # Use a cold daemon to allow for cache cleanup between builds
+    daemon = cold
+}
+
+benchmark-pull-everything-baseline-http = ${scenario-pull-everything} {
+    title = "Pull everything - baseline cache w/ HTTP remote"
+    gradle-args = ${scenario-pull-everything.gradle-args} ${build-cache-baseline-http.gradle-args}
+}
+
+benchmark-pull-everything-ng-http = ${scenario-pull-everything} {
+    title = "Pull everything - cache NG w/ HTTP remote"
+    gradle-args = ${scenario-pull-everything.gradle-args} ${build-cache-ng-http.gradle-args}
+}
