@@ -35,4 +35,5 @@ gradle-profiler/build/install/gradle-profiler/bin/gradle-profiler \
     --iterations ${ITERATION_COUNT_ARG} \
     --benchmark ${BENCHMARK} \
     --measure-gc \
+    --measure-local-cache \
     --csv-format long
